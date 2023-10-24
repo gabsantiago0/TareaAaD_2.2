@@ -1,5 +1,7 @@
 package Ejercicio;
 
-public class enumTractor {
-
+public enum enumTractor {
+    RURAL, // Tractor para tareas agrícolas
+    COSECHAR, // Tractor para la cosecha
+    CARRERAS
 }

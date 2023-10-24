@@ -9,24 +9,25 @@ public class Main {
         System.out.println("Programa de Gestión Rural");
 
 
-        while (on){
+        while (on) {
             System.out.println("Elige una opción:\n" +
                     "1. Crear\n" +
                     "2. Modificar\n" +
                     "3. Eliminar\n" +
                     "4. Consultar\n" +
                     "5. Salir\n");
+
             int opcion = Integer.parseInt(sc.nextLine());
-            switch (opcion){
+            switch (opcion) {
                 case 1:
 
                     System.out.println("Elige una opción para CREAR:\n" +
                             "1. GRANJERO\n" +
-                            "2. CONSTRACCIÓN\n" +
+                            "2. CONSTRUCCIÓN\n" +
                             "3. TRACTOR\n");
 
                     opcion = Integer.parseInt(sc.nextLine());
-                    switch (opcion){
+                    switch (opcion) {
                         case 1:
                             System.out.println("a");
                             break;
@@ -42,11 +43,11 @@ public class Main {
                 case 2:
                     System.out.println("Elige una opción para MODIFICAR:\n" +
                             "1. GRANJERO\n" +
-                            "2. CONSTRACCIÓN\n" +
+                            "2. CONSTRUCCIÓN\n" +
                             "3. TRACTOR\n");
 
                     opcion = Integer.parseInt(sc.nextLine());
-                    switch (opcion){
+                    switch (opcion) {
                         case 1:
                             System.out.println("b");
                             break;
@@ -63,11 +64,11 @@ public class Main {
                 case 3:
                     System.out.println("Elige una opción para MODIFICAR:\n" +
                             "1. GRANJERO\n" +
-                            "2. CONSTRACCIÓN\n" +
+                            "2. CONSTRUCCIÓN\n" +
                             "3. TRACTOR\n");
 
                     opcion = Integer.parseInt(sc.nextLine());
-                    switch (opcion){
+                    switch (opcion) {
                         case 1:
                             System.out.println("c");
                             break;
@@ -81,11 +82,27 @@ public class Main {
                     break;
 
                 case 4:
+                    System.out.println("Elige una opción para MODIFICAR:\n" +
+                            "1. GRANJERO\n" +
+                            "2. CONSTRUCCIÓN\n" +
+                            "3. TRACTOR\n");
 
+                    opcion = Integer.parseInt(sc.nextLine());
+                    switch (opcion) {
+                        case 1:
+
+                            break;
+                        case 2:
+
+                            break;
+                        case 3:
+
+                            break;
+                    }
                     break;
 
                 case 5:
-                    on=false;
+                    on = false;
                     break;
             }
         }
