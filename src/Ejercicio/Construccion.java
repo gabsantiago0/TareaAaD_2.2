@@ -3,10 +3,10 @@ package Ejercicio;
 public class Construccion {
     private int id;
     private String nombre;
-    private float precio;
+    private int precio;
     private int id_Granjero;
 
-    public Construccion(int id, String nombre, float precio, int id_Granjero) {
+    public Construccion(int id, String nombre, int precio, int id_Granjero) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
@@ -29,11 +29,11 @@ public class Construccion {
         this.nombre = nombre;
     }
 
-    public float getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 

@@ -3,13 +3,20 @@ package Ejercicio;
 public class Granjero {
 
     private int id;
+    private String nombre;
     private String descripcion;
-    private float dinero;
+    private int dinero;
+    private int puntos;
+    private int nivel;
 
-    public Granjero(int id, String descripcion, float dinero) {
+
+    public Granjero(int id, String nombre, String descripcion, int dinero, int puntos, int nivel) {
         this.id = id;
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.dinero = dinero;
+        this.puntos = puntos;
+        this.nivel = nivel;
     }
 
     public int getId() {
@@ -20,6 +27,14 @@ public class Granjero {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -28,12 +43,28 @@ public class Granjero {
         this.descripcion = descripcion;
     }
 
-    public float getDinero() {
+    public int getDinero() {
         return dinero;
     }
 
-    public void setDinero(float dinero) {
+    public void setDinero(int dinero) {
         this.dinero = dinero;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
 
     @Override

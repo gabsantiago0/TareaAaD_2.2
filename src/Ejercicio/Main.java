@@ -3,6 +3,7 @@ package Ejercicio;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean on = true;
@@ -29,7 +30,13 @@ public class Main {
                     opcion = Integer.parseInt(sc.nextLine());
                     switch (opcion) {
                         case 1:
-                            System.out.println("a");
+                            System.out.println("CREA un nuevo GRANJERO: ");
+                            OperacionesBasicasGranja.crearGranjero(deConsolaAgregarGranjero());
+                          if (OperacionesBasicasGranja.crearGranjero(deConsolaAgregarGranjero())){
+                              System.out.println("El granjero ha sido creado.");
+                          } else  {
+                              System.out.println("El granjero no se ha podido crear.");
+                          }
                             break;
                         case 2:
 
@@ -107,4 +114,23 @@ public class Main {
             }
         }
     }
+
+    private static Granjero deConsolaAgregarGranjero(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce un ID númerico:");
+        int id = scanner.nextInt();
+        System.out.println("Introduce un NOMBRE:");
+        String nombre = scanner.nextLine();
+        System.out.println("Introduce una DESCRIPCION: ");
+        String descripcion = scanner.nextLine();
+        System.out.println("Introduce una cantidad de DINERO: ");
+        int dinero = scanner.nextInt();
+        System.out.println("Introduce una cantidad de PUNTOS: ");
+        int puntos = scanner.nextInt();
+        System.out.println("Introduce un NIVEL: ");
+        int nivel = scanner.nextInt();
+
+        return new Granjero(id,nombre,descripcion,dinero,puntos,nivel);
+    }
+
 }
