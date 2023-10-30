@@ -227,4 +227,154 @@ public class OperacionesBasicasGranja {
         }
         return confirmacion;
     }
+
+    public static Construccion datosDeUnaConstruccion(int id){
+        Construccion consulta = null;
+
+        try {
+            abrirConexion();
+            ResultSet resultado;
+            String insert = "select * from construcciones where id = ?";
+
+            try(PreparedStatement ps = conexion.prepareStatement(insert)) {
+
+                ps.setInt(1,id);
+                resultado = ps.executeQuery();
+                while (resultado.next()){
+                    consulta = new Construccion(
+                            resultado.getInt("id"),
+                            resultado.getString("nombre"),
+                            resultado.getInt("precio"),
+                            resultado.getInt("id_Granjero"));
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            cerrarConexion();
+        }
+        return consulta;
+    }
+
+    //-----------------------------------------------------------------------\\MÉTODOS TRACTOR//----------------------------------------------------------------------------------//
+
+    public static boolean crearTractor(Tractor a){
+        boolean confirmacion = false;
+
+        try {
+            abrirConexion();
+            String insert = "insert into tractores (id, modelo, velocidad, precio_venta, proxima_coesacha, id_construccion) values (?,?,?,?,?,?)";
+
+            try(PreparedStatement ps = conexion.prepareStatement(insert)) {
+                ps.setInt(1,a.getId());
+                ps.setString(2, a.getTipo().getDescripcion());
+                ps.setInt(3,a.getVelocidad());
+                ps.setFloat(4,a.getPrecio_venta());
+                ps.setString(4,a.getProxima_coesacha());
+                ps.setInt(4,a.getId_construccion());
+
+                int filasAfectadas = ps.executeUpdate();
+                if (filasAfectadas>0){
+                    confirmacion = true;
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            cerrarConexion();
+        }
+        return confirmacion;
+    }
+
+    public static boolean modificarTractor(Tractor a){
+        boolean confirmacion = false;
+
+        try {
+            abrirConexion();
+            String insert = "update tractores set modelo = ?, velocidad = ?, precio_venta = ?, proxima_coesacha = ?, id_construccion = ?, where id = ?";
+
+            try(PreparedStatement ps = conexion.prepareStatement(insert)) {
+
+                ps.setString(1,a.getTipo().getDescripcion());
+                ps.setInt(2,a.getVelocidad());
+                ps.setFloat(3,a.getPrecio_venta());
+                ps.setString(4,a.getProxima_coesacha());
+                ps.setInt(5,a.getId_construccion());
+                ps.setInt(6,a.getId());
+
+                int filasAfectadas = ps.executeUpdate();
+                if (filasAfectadas>0){
+                    confirmacion = true;
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            cerrarConexion();
+        }
+        return confirmacion;
+    }
+
+    public static boolean eliminarTractor(Tractor a){
+        boolean confirmacion = false;
+
+        try {
+            abrirConexion();
+            String insert = "delete from tractores where id = ?";
+
+            try(PreparedStatement ps = conexion.prepareStatement(insert)) {
+
+                ps.setInt(1,a.getId());
+                int filasAfectadas = ps.executeUpdate();
+
+                if (filasAfectadas>0){
+                    confirmacion = true;
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            cerrarConexion();
+        }
+        return confirmacion;
+    }
+
+  /*  public static Tractor datosDeUnTractor(int id){
+        Construccion consulta = null;
+
+        try {
+            abrirConexion();
+            ResultSet resultado;
+            String insert = "select * from tractores where id = ?";
+
+            try(PreparedStatement ps = conexion.prepareStatement(insert)) {
+
+                ps.setInt(1,id);
+                resultado = ps.executeQuery();
+                while (resultado.next()){
+                    consulta = new Tractor(
+                            resultado.getInt("id"),
+                            resultado.("tipoTractor"),
+                            resultado.getInt("velocidad"),
+                            resultado.getFloat("precio_venta"),
+                            resultado.getString("proxima_coesacha"),
+                            resultado.getString("id_construccion"));
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            cerrarConexion();
+        }
+        return consulta;
+    }*/
+
+
+
+
 }

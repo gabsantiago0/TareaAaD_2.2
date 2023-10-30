@@ -1,23 +1,22 @@
 package Ejercicio;
 
-import javax.swing.*;
-
 public class Tractor {
 
     private int id;
-    private enum TipoTractor {modelo};
+    private TipoTractor tipo;
     private int velocidad;
     private float precio_venta;
     private String proxima_coesacha;
-    private int id_granjero;
+    private int id_construccion;
 
 
-    public Tractor(int id, int velocidad, float precio_venta, String proxima_coesacha, int id_granjero) {
+    public Tractor(int id, TipoTractor tipo, int velocidad, float precio_venta, String proxima_coesacha, int id_construccion) {
         this.id = id;
+        this.tipo = tipo;
         this.velocidad = velocidad;
         this.precio_venta = precio_venta;
         this.proxima_coesacha = proxima_coesacha;
-        this.id_granjero = id_granjero;
+        this.id_construccion = id_construccion;
     }
 
     public int getId() {
@@ -52,12 +51,20 @@ public class Tractor {
         this.proxima_coesacha = proxima_coesacha;
     }
 
-    public int getId_granjero() {
-        return id_granjero;
+    public int getId_construccion() {
+        return id_construccion;
     }
 
-    public void setId_granjero(int id_granjero) {
-        this.id_granjero = id_granjero;
+    public void setId_construccion(int id_construccion) {
+        this.id_construccion = id_construccion;
+    }
+
+    public TipoTractor getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoTractor tipo) {
+        this.tipo = tipo;
     }
 
     @Override
@@ -67,7 +74,7 @@ public class Tractor {
         sb.append(", velocidad=").append(velocidad);
         sb.append(", precio_venta=").append(precio_venta);
         sb.append(", proxima_coesacha='").append(proxima_coesacha).append('\'');
-        sb.append(", id_granjero=").append(id_granjero);
+        sb.append(", id_granjero=").append(id_construccion);
         sb.append('}');
         return sb.toString();
     }
