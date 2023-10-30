@@ -170,7 +170,7 @@ public class Main {
         }
     }
 
-    //METODOS PARA AÑANDIR:
+    //METODOS PARA AÑADIR:
 
     //Metodo que te pide una serie de parametros y construye un Granjero
     private static Granjero deConsolaAgregarGranjero() {
